@@ -16,5 +16,13 @@ function solveEquation(a, b, c) {
 }
 
 function calculateTotalMortgage(percent, contribution, amount, countMonths) {
-  
+  if (!isNaN(percent) && !isNaN(contribution) && !isNaN(amount) && !isNaN(countMonths)) {
+    let percentPerMounth  = percent / 100 / 12;
+    let creditBody = amount - contribution;
+    let paymentPerMounth = creditBody * (percentPerMounth + (percentPerMounth / (Math.pow((1 + percentPerMounth), countMonths)  - 1)));
+    let totalMortgage = paymentPerMounth * countMonths;
+    return totalMortgage.toFixed(2);
+  } else {
+    return false;
+  }
 }
