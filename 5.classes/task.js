@@ -1,3 +1,5 @@
+//Задание 1
+
 class PrintEditionItem {
   constructor (name, releaseDate, pagesCount) {
       this.name = name;
@@ -61,6 +63,8 @@ class Magazine extends PrintEditionItem {
         this.type = "detective";
     }
   }
+
+  //Задание 2
 
   class Library {
     constructor(name, books) {
@@ -138,3 +142,43 @@ picnik.fix();
 
 // возвращаем книгу в библиотеку
 library.addBook(picnik);
+
+//Задание 3
+
+class Student {
+  constructor (name, gender, age) {
+    this.name = name;
+    this.gender = gender;
+    this.age = age;
+    this.marks = {};
+  }
+  addMark(mark, subject) {
+    if (mark < 2 || mark > 5) {
+      return 
+    }
+    if(this.marks.hasOwnProperty(subject)){
+      this.marks[subject].push(mark);
+    } else {
+      this.marks[subject] = [];
+      this.marks[subject].push(mark);
+    }
+  }
+
+  getAverageBySubject (subject) {
+    if(!this.marks.hasOwnProperty(subject)) {
+      return 0;
+    } else {
+      return this.marks[subject]
+      .reduce((acc, item) => acc + item, 0) / this.marks[subject].length;
+    }
+  }
+
+  getAverage () {
+    let subjectsNames = Object.keys(this.marks); // для общего кол-ва предметов 
+    let marksSum = 0;
+    for (let i of subjectsNames){
+      marksSum += this.getAverageBySubject(i);
+    }
+    return marksSum / subjectsNames.length;
+  }
+}
