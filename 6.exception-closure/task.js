@@ -32,7 +32,7 @@ class Triangle {
   
     get area() {
       let p = 0.5 * this.perimeter;
-      return Math.sqrt(p * (p - this.a) * (p - this.b) * (p - this.c)).toFixed(3)
+      return +Math.sqrt(p * (p - this.a) * (p - this.b) * (p - this.c)).toFixed(3)
     }
   }
   
