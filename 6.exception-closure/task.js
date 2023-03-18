@@ -1,16 +1,16 @@
 ﻿'use strict'
 
 function parseCount(value) {
-  try{
-    if(isNaN(Number.parseFloat(value))) {
-      throw new Error("Невалидное значение");
+    try{
+      if(isNaN(Number.parseFloat(value))) {
+        throw new Error("Невалидное значение");
+      } else {
+        return Number.parseFloat(value);
+      }
+    } catch(error) {
+      
     }
-  } catch(error) {
-    return error;
   }
-  
-  return Number.parseFloat(value);
-}
 
 function validateCount(valueToPars) {
   try{
