@@ -17,7 +17,7 @@ class AlarmClock {
         canCall: true,
     }
 
-    this.alarmCollection.push(Object.create(obj));
+    this.alarmCollection.push(obj);
   }
 
   removeClock(time){
